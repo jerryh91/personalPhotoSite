@@ -1,0 +1,12 @@
+<h1>Album Index</h1>
+
+{% if latest_albums_list %}
+    <ul>
+    {% for album in latest_albums_list %}
+    	<li><a href="{% url 'photoViewer:albumDetail' album.id %}">{{ album.album_title }}</a>   Date Created: {{ album.date_created }}</li>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Albums are available.</p>
+{% endif %}

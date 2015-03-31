@@ -1,0 +1,22 @@
+{% load static from staticfiles %}
+<h1>Photo Detail</h1>
+
+<li>{{ photo.photo_title }}</li>
+<li>{{ photo.date_taken }}</li>
+
+<!-- photo.photo_img == "images/<photo name>.jpg" -->
+
+<!--Putting "/" in front of "media" routes to "site.com/media/"-->
+<!--instead of "site.com/photoViewer/photos<>/media"-->
+<img src="/media/{{ photo.photo_img }}" alt="My Image Heres"/>
+
+<h2>Albums Association</h2>
+{% if photo.album_set.all %}
+<ul>
+    {% for album in photo.album_set.all %}
+    	<li>{{ album.album_title }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>This Photo is Not in Any Album</p>
+{% endif %}

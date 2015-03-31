@@ -1,0 +1,11 @@
+<h1>Photo Index</h1>
+
+{% if latest_photo_list %}
+    <ul>
+    {% for photo in latest_photo_list %}
+    	<li><a href="{% url 'photoViewer:photo_detail' photo.id %}">{{ photo.photo_title }}</a>    {{ photo.date_taken }} </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Photos are available.</p>
+{% endif %}

@@ -1,0 +1,16 @@
+<h1>Album Detail</h1>
+
+<li>{{ album.album_title }}</li>
+<li>{{ album.date_created }}</li>
+
+{% if album.photos.all %}
+<ul>
+    {% for photo in album.photos.all %}
+    	<li>Photo Title: {{ photo.photo_title }}</li>
+    	<!-- <li><a href="{% url 'photoViewer:detail' photo.id %}">{{ photo.photo_title }}</a>    {{ photo.date_taken }} </li>
+ -->
+    {% endfor %}
+</ul>
+{% else %}
+    <p>This Album does not contain any Photos</p>
+{% endif %}
