@@ -1,15 +1,20 @@
-{% load static from staticfiles %}
-<h1>Photo Detail</h1>
+{% extends 'base.html' %}
+{% block content %}
 
-<li>{{ photo.photo_title }}</li>
-<li>{{ photo.date_taken }}</li>
+<br>
+<br>
+<span class="label label-inverse">{{ photo.photo_title }}</span>
 
-<!-- photo.photo_img == "images/<photo name>.jpg" -->
+<span class="label label-info">{{ photo.date_taken }}</span>
+
+
 
 <!--Putting "/" in front of "media" routes to "site.com/media/"-->
 <!--instead of "site.com/photoViewer/photos<>/media"-->
-<img src="/media/{{ photo.photo_img }}" alt="My Image Heres"/>
-
+<div class = "image">
+    <br />
+    <img src="/media/{{ photo.photo_img }}" alt="My Image Here" width="150%" height="150%"/>
+</div>
 <h2>Albums Association</h2>
 {% if photo.album_set.all %}
 <ul>
@@ -20,3 +25,5 @@
 {% else %}
     <p>This Photo is Not in Any Album</p>
 {% endif %}
+
+{% endblock %}

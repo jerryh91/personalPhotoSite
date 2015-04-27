@@ -1,11 +1,23 @@
-<h1>Photo Index</h1>
+{% extends 'base.html' %}
 
+{% block content %}
+<!--<link href="/static/css/photo_index.css" rel="stylesheet">-->
+<h1>Photo Index</h1>
 {% if latest_photo_list %}
     <ul>
     {% for photo in latest_photo_list %}
+        <p>
+        <img src="/media/{{ photo.photo_img }}" class="img-thumbnail"  width="50%" height="50%" />
     	<li><a href="{% url 'photoViewer:photo_detail' photo.id %}">{{ photo.photo_title }}</a>    {{ photo.date_taken }} </li>
-    {% endfor %}
+       </p>
+
+        <br>
+
+        {% endfor %}
     </ul>
 {% else %}
     <p>No Photos are available.</p>
 {% endif %}
+
+{% endblock %}
+
