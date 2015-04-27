@@ -1,1 +1,2 @@
-# personalPhotoSite implemented with Django
+#Personal Photo Portfolio
+Implemented with Django, using Leaflet
