@@ -1,1 +1,1 @@
-# personalPhotoSite
+# personalPhotoSite implemented with Django
