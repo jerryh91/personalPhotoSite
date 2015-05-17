@@ -6,7 +6,7 @@ urlpatterns = patterns('',
     # url(r'^$', views.PhotoIndexView.as_view(), name='photo_index'),
     url(r'^about/', views.PhotoViewerAboutTemplateView.as_view()),
 
-    url(r'^photos/(?P<filter>[^\d+]*)$', views.PhotoIndexView.as_view(),{'alumni': True}, name='photo_index'),
+    url(r'^photos/(?P<filter_type>(date_desc|title_desc|))$', views.PhotoIndexView.as_view(), name='photo_index'),
     url(r'^photos/(?P<pk>\d+)/$', views.PhotoDetailView.as_view(), name='photo_detail'),
 
     url(r'^albums/$', views.AlbumsIndexView.as_view(), name='albums_index'),

@@ -27,7 +27,14 @@ class PhotoIndexView (generic.ListView):
     context_object_name = 'latest_photo_list'
 
     def get_queryset(self):
-        return Photo.objects.order_by('-date_taken')[:5]
+        filter_type = self.kwargs['filter_type']
+        if filter_type == 'date_desc':
+            return Photo.objects.order_by('-date_taken')[:]
+        elif filter_type =='title_desc':
+            return Photo.objects.order_by('-photo_title')[:]
+        else:
+            # default ordering
+            return Photo.objects.all()[:5]
 
 class PhotoDetailView(generic.DetailView):
     model = Photo

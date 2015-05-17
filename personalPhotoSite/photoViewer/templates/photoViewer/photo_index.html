@@ -2,17 +2,25 @@
 
 {% block title %}Photo Index{% endblock %}
 
-{% block contents %}
 
-<h1>Photo Index</h1>
+{% block heading %}
+
+<h2>Photo Index</h2>
+{% endblock heading%}
+
+
+{% block contents %}
 <br>
 
-<button id="DateSortBtn" type="button" class="btn btn-default">
+<button id="DateOrderBtn" type="button" class="btn btn-default">
    Date Taken: <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
 </button>
 
-<br />
+<button id="TitleOrderBtn" type="button" class="btn btn-default">
+   Photo Title: <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+</button>
 
+<br />
 {% if latest_photo_list %}
 
     {% for photo in latest_photo_list %}
@@ -24,10 +32,10 @@
               <a href="{% url 'photoViewer:photo_detail' photo.id %}">
                 <img src="/media/{{ photo.photo_img }}" class="img-thumbnail"  width="100%" height="100%" />
               </a>
-              <li>
-               <span class="label label-primary">{{ photo.photo_title }}</span>
-               <span class="label label-info">{{ photo.date_taken }}</span>
-              </li>
+                <div class = "photo_label">
+                   <span class="label label-primary">{{ photo.photo_title }}</span>
+                   <span class="label label-info">{{ photo.date_taken }}</span>
+                </div>
           </div>
         </div>
     </div>
@@ -39,12 +47,19 @@
 {% endif %}
 
 <script type="text/javascript">
-    var sortButton = document.getElementById("DateSortBtn");
-    sortButton.onclick = function () {
+    var dateOrderButton = document.getElementById("DateOrderBtn");
+    var titleOrderButton = document.getElementById("TitleOrderBtn");
+
+    dateOrderButton.onclick = function () {
         //Append Filter type as string to URL?
-        location.href = "date_asc";
+        location.href = "date_desc";
     };
- //  sortButton.addEventListener("click", redirectDateSortBtn, false);
+
+    titleOrderButton.onclick = function () {
+        //Append Filter type as string to URL?
+        location.href = "title_desc";
+    };
+ //  sortButton.addEventListener("click", redirectDateOrderBtn, false);
 
 </script>
 {% endblock %}
