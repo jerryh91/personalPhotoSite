@@ -28,13 +28,17 @@ class PhotoIndexView (generic.ListView):
 
     def get_queryset(self):
         filter_type = self.kwargs['filter_type']
-        if filter_type == 'date_desc':
+        if filter_type == 'date_oldtonew':
+            return Photo.objects.order_by('date_taken')[:]
+        elif filter_type == 'date_newtoold':
             return Photo.objects.order_by('-date_taken')[:]
-        elif filter_type =='title_desc':
+        elif filter_type =='title_ztoa':
             return Photo.objects.order_by('-photo_title')[:]
+        elif filter_type =='title_atoz':
+            return Photo.objects.order_by('photo_title')[:]
         else:
             # default ordering
-            return Photo.objects.all()[:5]
+            return Photo.objects.all()[:]
 
 class PhotoDetailView(generic.DetailView):
     model = Photo

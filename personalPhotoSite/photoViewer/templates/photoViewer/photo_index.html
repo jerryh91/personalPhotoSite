@@ -50,14 +50,35 @@
     var dateOrderButton = document.getElementById("DateOrderBtn");
     var titleOrderButton = document.getElementById("TitleOrderBtn");
 
-    dateOrderButton.onclick = function () {
-        //Append Filter type as string to URL?
-        location.href = "date_desc";
+    var state = location.pathname.match(/\/photos\/(.*)/)[1];;
+    //TODO: Add dateState to Button..
+
+    dateOrderButton.onclick = function ()
+    {
+        if (state == "" | state == "date_oldtonew")
+        {
+            state = "date_newtoold";
+        }
+        else
+        {
+            state = "date_oldtonew";
+        }
+        //Append Filter type as string to URL
+        location.href = state;
     };
 
     titleOrderButton.onclick = function () {
-        //Append Filter type as string to URL?
-        location.href = "title_desc";
+
+         if (state == "" | state == "title_ztoa")
+        {
+            state = "title_atoz";
+        }
+        else
+        {
+            state = "title_ztoa";
+        }
+        //Append Filter type as string to URL
+        location.href = state;
     };
  //  sortButton.addEventListener("click", redirectDateOrderBtn, false);
 
