@@ -15,11 +15,13 @@ from photoViewer.models import Photo, Album
 #Base View > TemplateView:
 #Renders a given template, with the context containing parameters captured in the URL.
 
-class PhotoViewerAboutView (generic.TemplateView):
+class PhotoViewerAboutTemplateView (generic.TemplateView):
     template_name = 'photoViewer/photoViewer_about.html'
 
+class PlacesTemplateView (generic.TemplateView):
+    template_name = "photoViewer/places.html"
+
 #Generic Display View > ListView:
-#
 class PhotoIndexView (generic.ListView):
     template_name = 'photoViewer/photo_index.html'
     context_object_name = 'latest_photo_list'
@@ -32,12 +34,14 @@ class PhotoDetailView(generic.DetailView):
     template_name = 'photoViewer/photo_detail.html'
 
 class AlbumsIndexView(generic.ListView):
+
     template_name = 'photoViewer/albums_index.html'
     context_object_name = 'latest_albums_list'
 
     def get_queryset(self):
-        return Album.objects.order_by('-date_created')[:5]
+        #Retrieve filter/order_by type
 
+        return Album.objects.order_by('-date_created')[:5]
 
 class AlbumDetailView(generic.DetailView):
     model = Album

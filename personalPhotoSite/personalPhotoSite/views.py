@@ -12,7 +12,7 @@ from django.contrib import messages
 from .forms import ContactForm, FilesForm, ContactFormSet
 
 class MapView(generic.TemplateView):
-    template_name = 'photoViewer/map.html'
+    template_name = 'photoViewer/places.html'
 
 # http://yuji.wordpress.com/2013/01/30/django-form-field-in-initial-data-requires-a-fieldfile-instance/
 class FakeField(object):
