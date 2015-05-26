@@ -4,6 +4,23 @@ li, ul
     padding:0; margin:0;
 }
 
+.btn-group
+{
+    margin: 1%;
+
+}
+
+.detail_image
+{
+    margin: 1%;
+
+}
+
+.heading
+{
+    margin: 1%;
+}
+
 div.photo_label
 {
     /* clock-wise margin (top, right, bottom, left), padding specs*/

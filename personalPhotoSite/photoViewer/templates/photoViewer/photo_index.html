@@ -5,13 +5,13 @@
 
 {% block heading %}
 
-<h2>Photo Index</h2>
+<h2 class = "heading">Photo Index</h2>
 {% endblock heading%}
 
 
 {% block contents %}
 <br>
-
+<div class="btn-group">
 <button id="DateOrderBtn" type="button" class="btn btn-default">
    Date Taken: <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
 </button>
@@ -19,7 +19,7 @@
 <button id="TitleOrderBtn" type="button" class="btn btn-default">
    Photo Title: <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
 </button>
-
+</div>
 <br />
 {% if latest_photo_list %}
 
@@ -29,13 +29,14 @@
         <div class="row">
 	      <!-- Total Column width of 12 -->
 		  <div id = "per-pic" class="col-xs-12 col-md-6">
-              <a href="{% url 'photoViewer:photo_detail' photo.id %}">
-                <img src="/media/{{ photo.photo_img }}" class="img-thumbnail"  width="100%" height="100%" />
-              </a>
-                <div class = "photo_label">
+              <div class = "photo_label">
                    <span class="label label-primary">{{ photo.photo_title }}</span>
                    <span class="label label-info">{{ photo.date_taken }}</span>
                 </div>
+              <a href="{% url 'photoViewer:photo_detail' photo.id %}">
+                <img src="/media/{{ photo.photo_img }}" class="img-thumbnail"  width="100%" height="100%" />
+              </a>
+
           </div>
         </div>
     </div>
@@ -51,8 +52,8 @@
     var titleOrderButton = document.getElementById("TitleOrderBtn");
 
     var state = location.pathname.match(/\/photos\/(.*)/)[1];;
-    //TODO: Add dateState to Button..
 
+    //TODO: Add State information to Button..
     dateOrderButton.onclick = function ()
     {
         if (state == "" | state == "date_oldtonew")

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">-->
 
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -39,20 +39,22 @@
   <body>
     <nav class="navbar">
       <div class="container">
-            <ul class="pager" id = "nav_bar">
+            <ul class="pager" id = "nav_bar" style="text-align: left;">
               <li><a href="/photoViewer/about">About</a></li>
               <li><a href="/photoViewer/photos/">Stream</a></li>
                 <li><a href="/photoViewer/albums/">Albums</a></li>
                 <li><a href="/photoViewer/places/">Places</a></li>
                 <li><a href="/photoViewer/favorites">Favorites</a></li>
+                <li><a href="/photoViewer/upload">Upload Photos</a></li>
             </ul>
+
 
         </div>
     </nav>
 
     <div class="jumbotron">
     {% block heading %}
-        <h1>PhotoViewer Home Page</h1>
+        <h2 class = "heading">PhotoViewer Home Page</h2>
     {% endblock heading %}
 
     {% block contents %}

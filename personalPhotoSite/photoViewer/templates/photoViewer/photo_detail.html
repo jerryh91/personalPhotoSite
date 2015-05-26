@@ -3,7 +3,7 @@
 
 {% block heading %}
 
-<h2>Photo Detail</h2>
+<h2 class = "heading">Photo Detail</h2>
 {% endblock heading%}
 
 {% block contents %}
@@ -11,17 +11,17 @@
 <br>
 <br>
 
-<!--Putting "/" in front of "media" routes to "site.com/media/"-->
-<!--instead of "site.com/photoViewer/photos<>/media"-->
-<div class = "image">
-    <img src="/media/{{ photo.photo_img }}" alt="My Image Here" width="75%" height="75%"/>
-    <div class = "photo_label">
+<div class = "photo_label">
         <span class="label label-primary">{{ photo.photo_title }}</span>
         <span class="label label-info">{{ photo.date_taken }}</span>
-    </div>
-
 </div>
-<h2>Albums Association</h2>
+<!--Putting "/" in front of "media" routes to "site.com/media/"-->
+<!--instead of "site.com/photoViewer/photos<>/media"-->
+<div class = "detail_image">
+    <img src="/media/{{ photo.photo_img }}" alt="My Image Here" width="75%" height="75%"/>
+</div>
+
+<h2 class="heading">Albums Association</h2>
 {% if photo.album_set.all %}
 <ul>
     {% for album in photo.album_set.all %}

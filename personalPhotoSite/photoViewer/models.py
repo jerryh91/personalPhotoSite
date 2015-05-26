@@ -9,7 +9,7 @@ from django.db import models
 
 #photoViewer/: (index) photostream (list all photos) 
 class Photo (models.Model):
-    photo_title = models.CharField(max_length=200)
+    photo_title = models.CharField(max_length=20)
     #how to retrieve from metadata of file?
     date_taken = models.DateField('date taken', default=None, blank=True, null=True)
     photo_img = models.ImageField(upload_to = "images/", default= "")
