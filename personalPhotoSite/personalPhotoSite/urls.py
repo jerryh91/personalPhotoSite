@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.conf import settings
 from personalPhotoSite import views
 import photoViewer
@@ -9,7 +9,8 @@ import photoViewer
 
 #Root URLconfs
 
-urlpatterns = patterns('',
+urlpatterns = [
+
     # Examples:
     # url(r'^$', 'personalPhotoSite.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
@@ -31,7 +32,7 @@ urlpatterns = patterns('',
 
 
 
-)
+]
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
