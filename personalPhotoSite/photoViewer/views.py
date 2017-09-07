@@ -57,6 +57,7 @@ class PhotoIndexView (generic.ListView):
     context_object_name = 'latest_photo_list'
 
     def get_queryset(self):
+        #comments
         filter_type = self.kwargs['filter_type']
         if filter_type == 'date_oldtonew':
             return Photo.objects.order_by('date_taken')[:]
